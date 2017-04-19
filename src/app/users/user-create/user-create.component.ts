@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from '../user.model';
+import { UsersService } from '../users.service'
 
 @Component({
   selector: 'app-user-create',
@@ -6,13 +8,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./user-create.component.css']
 })
 export class UserCreateComponent implements OnInit {
-  @Output() onSubmit = new EventEmitter<void>();
-  constructor() { }
+  constructor(private usersService : UsersService) { }
 
   ngOnInit() {
   }
-  submit() {
-    this.onSubmit.emit();
+  submit(username, useremail, userpwd) {
+    let user = new User(username.value, useremail.value, userpwd.value ,'')
+    this.usersService.createUser(user)
   }
-
 }

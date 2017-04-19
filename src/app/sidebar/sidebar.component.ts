@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { MenuService } from '../menu.service'
 
 @Component({
   selector: 'app-sidebar',
@@ -7,26 +8,9 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   @Output() onMenu = new EventEmitter<string>();
-  constructor() { }
+
+  constructor(private menuService : MenuService) { }
 
   ngOnInit() {
-  }
-  onDashboard() {
-    this.onMenu.emit("dashboard");
-  }
-  onNodes() {
-  this.onMenu.emit("nodes");
-  }
-  onStacks() {
-    this.onMenu.emit("stacks");
-  }
-  onPassword() {
-    this.onMenu.emit("password")
-  }
-  onUsers() {
-    this.onMenu.emit("users")
-  }
-  onSwarms() {
-    this.onMenu.emit("swarms")
   }
 }

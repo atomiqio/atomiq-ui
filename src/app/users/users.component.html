@@ -1,5 +1,7 @@
-<div class="row">
-  <div class="col-xs-12" style="">
-    <app-user-list></app-user-list>
-  </div>
+
+<div *ngIf="usersService.createMode; else listMode">
+  <app-user-create (onUserCreate)="userService.createMode=false"></app-user-create>
 </div>
+<ng-template #listMode>
+  <app-user-list></app-user-list>
+</ng-template>

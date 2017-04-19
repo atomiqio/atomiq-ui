@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../user.model';
+import { UsersService } from '../users.service'
 
 @Component({
   selector: 'app-user-login',
@@ -7,14 +8,13 @@ import { User } from '../user.model';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
-  @Output() onLogging = new EventEmitter<User>();
-  constructor() { }
+  constructor(private usersService : UsersService) { }
 
   ngOnInit() {
   }
 
-  logging(name: string, pwd: string) {
-    this.onLogging.emit(new User(name, pwd, '',''));
+  login(name, pwd) {
+    this.usersService.login(new User(name.value, pwd.value, '', ''))
   }
 
 }

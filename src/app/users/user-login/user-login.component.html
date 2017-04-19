@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-10 col-sm-offset-1">
+  <div class="col-sm-8 col-sm-offset-2">
     <div class="panel panel-default">
       <div class="panel-body">
         <div icon="fa-plus" title="Login user">
@@ -14,7 +14,7 @@
               <div class="col-sm-8">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" id="username" placeholder="e.g. jdoe">
+                  <input type="text" class="form-control" id="username" placeholder="e.g. jdoe" #username>
                 </div>
               </div>
             </div>
@@ -24,14 +24,14 @@
               <div class="col-sm-8">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                  <input type="password" class="form-control" id="password">
+                  <input type="password" class="form-control" id="password" #userpwd>
                 </div>
               </div>
             </div>
 
             <div class="form-group">
               <div class="col-sm-12">
-                <button type="button" class="btn btn-primary btn-sm" (click)="logging()"><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i> Logging</button>
+                <button type="button" class="btn btn-primary btn-sm" (click)="login(username, userpwd)"><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i> Logging</button>
                 <i id="createUserSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
               </div>
             </div>

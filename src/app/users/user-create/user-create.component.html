@@ -11,7 +11,7 @@
               <label for="username" class="col-sm-2 control-label text-left">Username</label>
               <div class="col-sm-8">
                 <div class="input-group">
-                  <input type="text" class="form-control" id="username" ng-change="checkUsernameValidity()" placeholder="e.g. jdoe">
+                  <input #username type="text" class="form-control" id="username" ng-change="checkUsernameValidity()" placeholder="e.g. jdoe">
                   <span class="input-group-addon"><i ng-class="{true: 'fa fa-check green-icon', false: 'fa fa-times red-icon'}[state.validUsername]" aria-hidden="true"></i></span>
                 </div>
               </div>
@@ -21,7 +21,7 @@
               <label for="email" class="col-sm-2 control-label text-left">Email</label>
               <div class="col-sm-8">
                 <div class="input-group">
-                  <input type="text" class="form-control" id="email" ng-change="checkEmailValidity()" placeholder="">
+                  <input #useremail type="text" class="form-control" id="email" ng-change="checkEmailValidity()" placeholder="">
                   <span class="input-group-addon"><i ng-class="{true: 'fa fa-check green-icon', false: 'fa fa-times red-icon'}[state.validUsername]" aria-hidden="true"></i></span>
                 </div>
               </div>
@@ -32,7 +32,7 @@
               <div class="col-sm-8">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                  <input type="password" class="form-control" id="password">
+                  <input #userpwd type="password" class="form-control" id="password">
                 </div>
               </div>
             </div>
@@ -41,7 +41,7 @@
               <div class="col-sm-8">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                  <input type="password" class="form-control" id="confirm_password">
+                  <input #userpwdVerif type="password" class="form-control" id="confirm_password">
                   <span class="input-group-addon"><i ng-class="{true: 'fa fa-check green-icon', false: 'fa fa-times red-icon'}[formValues.Password !== '' && formValues.Password === formValues.ConfirmPassword]" aria-hidden="true"></i></span>
                 </div>
               </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="form-group">
               <div class="col-sm-12">
-                <button type="button" class="btn btn-primary btn-sm" (click)="submit()"><i class="fa fa-user-plus" aria-hidden="true"></i> Submit</button>
+                <button type="button" class="btn btn-primary btn-sm" (click)="submit(username, useremail, userpwd)"><i class="fa fa-user-plus" aria-hidden="true"></i> Submit</button>
                 <i id="createUserSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
               </div>
             </div>

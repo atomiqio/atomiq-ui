@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user.model';
+import { UsersService } from '../users.service'
 
 @Component({
   selector: 'app-user-list',
@@ -8,11 +9,8 @@ import { User } from '../user.model';
 })
 export class UserListComponent implements OnInit {
   createMode = false
-  users: User[] = [
-    new User('freignat', 'freignat@axway.com', '', 'admin')
-  ];
 
-  constructor() {
+  constructor(private usersService : UsersService) {
   }
 
   ngOnInit() {
@@ -23,7 +21,7 @@ export class UserListComponent implements OnInit {
   order(orderby: string) {
   }
   selectAllItems() {
-    for (let user of this.users) {
+    for (let user of this.usersService.users) {
       user.checked=true
     }
   }
