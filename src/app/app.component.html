@@ -1,0 +1,18 @@
+
+<div *ngIf="userName===''; else fullApp">
+  <div class="text-center col-sm-8 col-sm-offset-2">
+    <div style="height:100px"></div>
+    <app-user-login (onLogging)="setUser($event)"></app-user-login>
+  </div>
+</div>
+<ng-template #fullApp>
+  <div id="page-wrapper" class="open" ng-cloak>
+    <app-sidebar  (onMenu)="onMenu($event)"></app-sidebar>
+    <div id="content-wrapper">
+      <div class="page-content" style="background-color:#f0f0f0">
+        <app-pageheader></app-pageheader>
+        <app-users *ngIf="selectedMenuItem=='users'"></app-users>
+      </div>
+    </div>
+  </div>
+</ng-template>

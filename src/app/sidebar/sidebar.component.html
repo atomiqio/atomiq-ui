@@ -1,0 +1,39 @@
+<div id="sidebar-wrapper">
+    <ul class="sidebar">
+      <li class="sidebar-title">
+        <span>Active endpoint</span>
+      </li>
+      <li class="sidebar-title">
+        <select class="select-endpoint form-control" ng-options="endpoint.Name for endpoint in endpoints" ng-model="activeEndpoint" (change)="switchEndpoint(activeEndpoint)">
+        </select>
+      </li>
+      <li class="sidebar-title"><span>Endpoint actions</span></li>
+      <li class="sidebar-list">
+        <a ui-sref="dashboard" ui-sref-active="active" (click)="onDashboard()">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+      </li>
+      <li class="sidebar-list" ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM_MODE'">
+        <a ui-sref="nodes" ui-sref-active="active" (click)="onNodes()">Nodes <span class="menu-icon fa fa-list-alt"></span></a>
+      </li>
+      <li class="sidebar-list">
+        <a ui-sref="stacks" ui-sref-active="active" (click)="onStacks()">Stacks <span class="menu-icon fa fa-server"></span></a>
+      </li>
+      <li class="sidebar-title"><span>Atomiq settings</span></li>
+      <li class="sidebar-list" ng-if="applicationState.application.authentication">
+        <a ui-sref="password" ui-sref-active="active" (click)="onPassword()">Password <span class="menu-icon fa fa-lock"></span></a>
+      </li>
+      <li class="sidebar-list" ng-if="applicationState.application.authentication && userRole === 1">
+        <a ui-sref="users" ui-sref-active="active" (click)="onUsers()">Users <span class="menu-icon fa fa-user"></span></a>
+      </li>
+      <li class="sidebar-list" ng-if="!applicationState.application.authentication || userRole === 1">
+        <a ui-sref="endpoint" ui-sref-active="active" (click)="onSwarms()">EndPoints <span class="menu-icon fa fa-plug"></span></a>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <div class="col-xs-12">
+        <a href="https://github.com/atomiqio/atomiq" target="_blank">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          Atomiq {{ uiVersion }}
+        </a>
+      </div>
+    </div>
+  </div>
